@@ -1,21 +1,24 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
 class CommentList extends PureComponent {
   renderComments() {
-    return this.props.comments.map((comment) => {
+    return this.props.comments.map(comment => {
       return <li key={comment}>{comment}</li>
     })
   }
-  
+
   render() {
-    return <div>
+    return (
+      <div>
+        <h4>Comment List</h4>
         <ul>{this.renderComments()}</ul>
       </div>
+    )
   }
 }
 
-const mapState = (state) => {
+const mapState = state => {
   return { comments: state.comments }
 }
 
