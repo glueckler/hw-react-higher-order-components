@@ -5,6 +5,21 @@ import * as actions from 'actions'
 class CommentBox extends PureComponent {
   state = { comment: '' }
 
+  componentDidMount() {
+    this.shouldNavigateAway()
+  }
+  
+  componentDidUpdate() {
+    this.shouldNavigateAway()
+  }
+  
+  shouldNavigateAway() {
+    // if user is not logged in.. redirect
+    if (!this.props.auth) {
+      this.props.history.push('/')
+    }
+  }
+  
   handleChange = event => {
     this.setState({ comment: event.target.value })
   }
@@ -33,4 +48,10 @@ class CommentBox extends PureComponent {
   }
 }
 
-export default connect(null, actions)(CommentBox)
+const mapState = (state) => {
+  return {
+    auth: state.auth,
+  }
+}
+
+export default connect(mapState, actions)(CommentBox)
