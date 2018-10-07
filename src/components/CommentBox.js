@@ -1,24 +1,10 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import * as actions from 'actions'
+import requireAuth from 'components/requireAuth'
 
 class CommentBox extends PureComponent {
   state = { comment: '' }
-
-  componentDidMount() {
-    this.shouldNavigateAway()
-  }
-  
-  componentDidUpdate() {
-    this.shouldNavigateAway()
-  }
-  
-  shouldNavigateAway() {
-    // if user is not logged in.. redirect
-    if (!this.props.auth) {
-      this.props.history.push('/')
-    }
-  }
   
   handleChange = event => {
     this.setState({ comment: event.target.value })
@@ -48,10 +34,4 @@ class CommentBox extends PureComponent {
   }
 }
 
-const mapState = (state) => {
-  return {
-    auth: state.auth,
-  }
-}
-
-export default connect(mapState, actions)(CommentBox)
+export default requireAuth(connect(null, actions)(CommentBox))
