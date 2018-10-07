@@ -1,26 +1,16 @@
-# Testing React and Redux 
+# Higher Order Components
 
-### create-react-app
-create react app comes with jest and JSDOM
+### Step 1
+Write the logic you want the reuse in a component
 
-### JSDOM
-allows for the use of document.createElement(...) etc..
+### Step 2
+Create a HOC file and add the HOC scaffold
 
-## enzyme
-note that you may need to reinstal node_modules after installing enzyme
+### Step 3
+Move the reusable logic into the HOC file
 
-### render methods
-### Static 
-- render the given component and return plain HTML
-
-### Shallow 
-- render just the component and none of its children
-- great for testing single components in isolation, no assuptions about child components
-- native DOM elements will be rendered, just no React components
-
-### Full DOM
-- render component and all its children
-- plus we can interact with them after like test click events
+### Step 4
+Pass props/config/behavior through to child component
 
 
 
