@@ -13,4 +13,8 @@ Move the reusable logic into the HOC file
 Pass props/config/behavior through to child component
 
 
+## Note
+use lower case letter at the beginning of file name which exports a function (such as an HOC)
+
+
 
